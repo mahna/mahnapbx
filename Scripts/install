@@ -1,0 +1,83 @@
+﻿clear
+cd /var/www/html/nains
+
+#step 1: install base
+unzip -o "/var/www/html/nains/base/base@*.zip" -d "/var/www/html/"
+
+#step 2: delete default modules (removed auto module installs)
+#amportal a ma deleteall -f
+#amportal a ma list
+#amportal a ma reload
+
+
+#step 3: extract new core modules
+cat /var/www/html/nains/core_modules/*.tgz | tar -zxf - -i -C "/var/www/html/admin/modules/"
+
+#step 4: install new core modules (removed auto module installs)
+#amportal a ma installlocal -f
+#amportal a ma list
+#amportal a ma reload
+
+#step 5: extract new other modules
+cat /var/www/html/nains/other_modules/*.tgz | tar -zxf - -i -C "/var/www/html/admin/modules/"
+
+#step 6: install new other modules (removed auto module installs)
+#amportal a ma installlocal -f
+#amportal a ma list
+#amportal a ma reload
+
+
+
+#step 7: set file permissions
+chmod -R 0775 "/var/www/html/admin"
+chmod 0775 "/var/www/html/admin"
+
+#step 8: allow direct access to modules. (form iframe modules)
+rm -rf /var/www/html/admin/modules/.htaccess
+
+
+
+#step 9: uninstall old nodejs and reinstall new version
+rm -rf /usr/local/node
+rm -rf /usr/local/npm
+rm -rf lib/node_modules/npm
+rm -rf lib/node
+
+cd /var/www/html/nains/nodejs
+unxz node-v6.10.0-linux-x64.tar.xz
+tar -xvf node-v6.10.0-linux-x64.tar
+mv node-v6.10.0-linux-x64 /usr/local
+chmod -R 0775 /usr/local/node-v6.10.0-linux-x64/
+ln -s /usr/local/node-v6.10.0-linux-x64/bin/node /usr/local/bin/node
+ln -s /usr/local/node-v6.10.0-linux-x64/bin/npm /usr/local/bin/npm
+
+
+#step 10: installing npmbox and npmunbox
+cd /var/www/html/nains/nodejsmodules
+tar --no-same-owner --no-same-permissions -xvzf ./npmbox.npmbox
+npm install --global --cache ./.npmbox.cache --optional --cache-min 99999999999 --shrinkwrap false npmbox
+npm remove forever -g
+npm remove pm2 -g
+npm cache clean
+ln -s /usr/local/node-v6.10.0-linux-x64/bin/npmbox /usr/local/bin/npmbox
+ln -s /usr/local/node-v6.10.0-linux-x64/bin/npmunbox /usr/local/bin/npmunbox
+
+npmunbox ./forever.npmbox -g
+npmunbox ./pm2.npmbox -g
+ln -s /usr/local/node-v6.10.0-linux-x64/bin/pm2 /usr/local/bin/pm2
+ln -s /usr/local/node-v6.10.0-linux-x64/bin/forever /usr/local/bin/forever
+
+
+
+#step 11: create folders and ...
+rm -rf /var/lib/php/session/*
+mkdir /var/lib/php/session/__cache_need_reload
+
+#step 12: last reload
+amportal a ma reload
+amportal a ma list
+clear
+
+echo ""
+echo `tput setaf 2`Successfully installed!`tput sgr0`
+echo ""

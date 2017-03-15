@@ -1,0 +1,92 @@
+﻿<system>
+	<naigrid>
+		<rows>50</rows>
+		<subrows>500</subrows>
+	</naigrid>
+	<panel>
+		<minname> مهنا </minname>
+		<name> پنل مدیریت مرکز تماس مهنا </name>
+		<logo> images/nainemom/logo.png </logo>
+		<titleicon> </titleicon>
+		<nai>true</nai>
+		<naiver>17</naiver>
+		<naichlog>
+			*17* add style (border) to excel outputs
+			*16* grid fixed pager
+			*15* add category for dataservers
+			*14* fix naigrid pager element
+				 add naigrid to system.xml
+				 show module version in menu
+			*13* add second to grid_format method zdate
+				add subgrid support to naiGrid
+				fix excel export in naiGrid
+				developer_mode is boolean in url. load config.php?developer_mode=true
+				add naiJax plugin for ajax calls
+				add spiner to images
+				loading spinner (fix login problem)
+				add digital font
+				add removeBoms file to fix bom files if needed
+			*12* responsive
+				better reload cache
+				better style naigrid
+				option for disable pager in naigrid
+				fix cache problem in inaccess option for modules
+				persian text for wrong un or pw
+				add jquery repeatable_item
+				add jquery naicountdown
+				add isElemInView, secToTime, naiPercentage function into nai_func.js
+				add reloadcache for all users
+				add jquery persiandatepickernai
+				send input name 'shiftwork' when user logged in
+			*11* fix bugs in ver 10! (set developer mode off -config.php- and fix free jdate called in nai_require by pass parameter
+			*10* lis nailic
+				__cache class added (by Nainemom). baraye sorat be function haye tulani
+				session max life time to 30min
+				new naigrid plugin
+				developer mode by one click on the footer when scroll at end of page
+				top menu's style updated.
+				theme updated
+				upload tgz file for new modules directly from panel!
+				delete module folder from panel directly (pro, click on icon of module)!
+				referer problem solved (when manualy typing address)
+				dynamic no notification info text added 
+				remove title h2, bcoz its clear that which module was loaded
+				results of search in sidebar has orginall class applyed to default li
+			*9* function nai_get_browser added to nai_get_browser.
+				if browser is not chrome40+, show warning (in config.php).
+				nai_new_file function renamed to nai_write_file.
+				nai_log function updated.
+				function nai_can_access_to_this_option added
+			*8* phpexcel cache option added (function.inc.php)
+				functione nai_file_download update shod (hanuz ba halate ghabli kar mikone)
+				functions nai_excel_header, nai_excel_row, nai_excel_footer be nai_myclass.php
+				functione nai_content_download ezafe shod
+				function get_mac_linux o ina added
+				zdate updated (sec to elapced time)
+				node service check notification updated
+				new theme 'flat' appended
+				low-level lisance checking
+				some little bug fixed
+			*7* isModuleInstalled function to global nodejs
+				nai-asterisk-manager updated
+				tuye menu neshun mide ke dar hale tose'e hastesh ya na. (unaee ke naivereshun ing dare dar hale tose'e hastan)
+				page e module ha update shod
+				panel o versionesh tu safeye module ha ezafe shod
+				footer, header codes cleaned
+				logout shodane khodkar update shod be 2 saate va fix shod.
+				get[do] ke servero khamush mikardo ina, codash raft tu core function
+				nodejs warning in header notification
+			*6* ezafe shodane vis be library haye javascript va functione include_plugin php
+				size e textbox tu chrome
+				rafe moshkele heighte sub category ha tu sidebar, module haye beta texteshun avaz shodan 2015-05-09
+				node js hamashun raftan ru ye porto ina o foldere node ezafe shod
+				tooltip master, data-direction ham migire, age nadadi, chap mizare . 2015-05-04
+				javascript haye man, func ha ba unayi ke chizi set mioknan joda shodan. 2015-04-26
+			*5* ba javascript check mikonam ke safhe hatman dorost load shode bashe! age nashode bud, reload beshe. yani dige moshkele nesfe load shodan nadare.
+				ghabeliat disable budane item haye header ham ezafe shod. 2015-04-19
+			*4* nodejs moduleha az panele asli joda shodo khode nodejs, ba khode panel nasb mishe. title e reloading ham farsi shod. 2015-04-14
+			*3* file-e htaccess tuye foldere modules ezafe shod. chon dasresi mahdud bud unja
+			*2* meghdare naiver be safeye moduleha ezafe shod, tuye mainstyle ham ye taghirate kuchik dade shod.
+		</naichlog>
+	</panel>
+</system>

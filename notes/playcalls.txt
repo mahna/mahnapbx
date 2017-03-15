@@ -1,0 +1,1 @@
+bazi jaha playcalls ye recordayi miare ke billsec neveshte masalan 2 deghe, vali file e eshtebahe. (aslan wav nis) hajme in filea 60b hast. age mikhay in moshkel tu un bazi jaha hal beshe, ghable inke record ro be grid ezafe koni: filesize( $file_ ) != 60 ro check kon

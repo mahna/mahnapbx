@@ -1,0 +1,9 @@
+.faxreport_setting_table tr td:first-child{
+	width: 400px;
+}
+
+
+
+.hide{
+	display: none;
+}

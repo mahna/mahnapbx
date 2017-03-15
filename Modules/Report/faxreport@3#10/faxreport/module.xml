@@ -1,0 +1,27 @@
+<module>
+	<rawname>faxreport</rawname>
+	<name>فکس‌ها</name>
+	<publisher>Nainemom</publisher>
+	<license>Mahna</license>
+
+	<type>setup</type>
+	<category>گزارش</category>
+	<subcategory>فکس</subcategory>
+	<menuitems>
+		<faxreport>فکس‌ها</faxreport>
+	</menuitems>
+	<description>نمایش فکس های ارسالی و دریافتی.</description>
+	<permissions>
+		<function>nai_faxreport_getlist_forper</function>
+	</permissions>
+	<depends>
+		<module>faxdevice</module>
+	</depends>
+	<version> 2.0.0 </version>
+	<nai>true</nai>
+	<naiver>3</naiver>
+	<naichlog>
+		*3* fix report fax device number
+		*2* fix some bugs
+	</naichlog>
+</module>

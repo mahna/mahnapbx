@@ -1,0 +1,48 @@
+<?php
+
+	$bomFiles = findBoms();
+	writeOutput( 'Bom Removed From '. count($bomFiles). ' File/Files!', 'green' );
+	foreach( $bomFiles as $bom ){
+		removeBom($bom);
+		writeOutput($bom);
+	}
+	
+
+
+	
+	
+	function findBoms($dir = '/var/www/html/', $fileTypes = array('php','html') ){
+		$_boms = explode("\n", shell_exec("grep -rl $'\xEF\xBB\xBF' $dir") );
+		$ret = array();
+		foreach( $_boms as $bom ){
+			$ext = substr($bom, strrpos($bom,'.')+1 );
+			if( in_array( $ext, $fileTypes ) )
+				$ret[] = $bom;
+		}
+		return $ret;
+	}
+	
+	function removeBom($file){
+		$result = shell_exec("sed -i -e '1s/^\xEF\xBB\xBF//' $file");
+		return true;
+	}
+
+	
+	function writeOutput($str = '', $color='default'){
+		$cmd = '';
+		switch( $color ){
+			case 'green':
+				$cmd = "echo `tput setaf 2`$str`tput sgr0`";
+				break;
+			case 'red':
+				$cmd = "echo `tput setaf 1`$str`tput sgr0`";
+				break;
+			case 'default':
+			default:
+				$cmd = "echo $str";
+				break;
+		}
+		echo shell_exec($cmd);
+	}
+
+?>
